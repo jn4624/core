@@ -20,4 +20,9 @@ public class OrderServiceImpl implements OrderService {
 
         return new Order(memberId, itemName, itemPrice, discountPrice);
     }
+
+    // @Configuration - 싱글톤 검증 용도 코드
+    public MemberRepository getMemberRepository() {
+        return memberRepository;
+    }
 }
