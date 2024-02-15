@@ -22,7 +22,7 @@ public class NetworkClient {
     }
 
     public void call(String message) {
-        System.out.println("close = " + url + " message = " + message);
+        System.out.println("call = " + url + " message = " + message);
     }
 
     /**
