@@ -3,12 +3,18 @@ package hello.core.common;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
+/**
+ * proxyMode = ScopedProxyMode.TARGET_CLASS
+ * 가짜 프록시 클래스를 생성하여
+ * HTTP Request 요청이 없어도 빈에 미리 의존관계를 주입하도록 한다.
+ */
 @Component
-@Scope(value = "request")
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MyLogger {
     private String uuid;
     private String requestURL;
